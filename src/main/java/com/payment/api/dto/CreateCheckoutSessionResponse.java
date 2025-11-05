@@ -4,6 +4,11 @@ public class CreateCheckoutSessionResponse {
     private String checkoutUrl;
     private String sessionId;
 
+    public CreateCheckoutSessionResponse(String checkoutUrl, String sessionId) {
+        this.checkoutUrl = checkoutUrl;
+        this.sessionId = sessionId;
+    }
+    
     // Getters and setters
     public String getCheckoutUrl() {
         return checkoutUrl;
