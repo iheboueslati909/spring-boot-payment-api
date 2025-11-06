@@ -15,4 +15,7 @@ public interface PaymentRepository extends JpaRepository<Payment, UUID> {
 
     // Optional: find payments by user
     List<Payment> findByUserIdOrderByCreatedAtDesc(String userId);
+
+    Optional<Payment> findByIntendIdAndAppId(String intendId,String appId);
+    Optional<Payment> findByIdempotencyKeyAndAppId(String idempotencyKey, String appId);
 }
