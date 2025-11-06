@@ -1,6 +1,8 @@
 package com.payment.api.model;
 
 import jakarta.persistence.*;
+
+import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.UUID;
 
@@ -15,8 +17,7 @@ public class OutboxMessage {
     @Column(nullable = false)
     private String type;
 
-    @Lob
-    @Column(nullable = false)
+    @Column(length = 2048, nullable = false)
     private String content;
 
     @Column(nullable = false, updatable = false)
@@ -24,8 +25,10 @@ public class OutboxMessage {
 
     private OffsetDateTime processedAt;
 
-    @Lob
+    @Column(length = 2048)
     private String error;
+
+    public OutboxMessage() {}
 
     @PrePersist
     protected void onCreate() {

@@ -33,7 +33,7 @@ public class Payment {
     @Column(unique = true, nullable = false)
     private String idempotencyKey;
 
-    @Lob
+    @Column(length = 2048)
     private String checkoutUrl;
 
     @Column(nullable = false, updatable = false)
